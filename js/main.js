@@ -6,7 +6,7 @@ var app = new Vue({
     data: {
         user: {
             name: 'Annalisa Cecchini',
-            avatar: '_io'
+            avatar: '_ac'
         },
         newMessages: '', 
         indexContact: 0,
