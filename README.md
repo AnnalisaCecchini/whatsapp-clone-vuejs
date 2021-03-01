@@ -37,7 +37,7 @@ Try it!
 ----------
 
 :arrow_forward: Visit my website [annalisacecchini.com](https://annalisacecchini.com)  
-:arrow_forward: Download [my Resume](https://annalisacecchini.com/download)  
+:arrow_forward: Download [my Resume](https://annalisacecchini.com/downloads)  
 :arrow_forward: Send me an e-mail at [annalisacecchini.dev@gmail.com](mailTo:annalisacecchini.dev@gmail.com)  
 
 &copy; Annalisa Cecchini - 2020
