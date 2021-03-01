@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whatsapp | Clone in Vue.js</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body class="dflex">
+
+    <div id="app" class="container dflex">
+        <!-- sidebar / contacts -->
+        <aside class="sidebar dflex"> 
+            <div class="side-account dflex al-center">
+                <img :src="'./images/avatar' + user.avatar + '.jpg'" :alt="user.name">
+                <h4>{{user.name}}</h4>
+                <i class="fas fa-circle-notch dark-g"></i>
+                <i class="fas fa-comment-alt dark-g"></i>
+                <i class="fas fa-ellipsis-v dark-g"></i>
+            </div>
+            <div class="side-notify dflex al-center">
+                <i class="fas fa-bell-slash"></i>
+                <div>
+                    <h5>Receive notifications of new messages</h5>
+                    <a href="#">Enable desktop notifications</a>
+                </div>
+            </div>
+            <div class="side-search dflex">
+                <div class="search-query dflex al-center">
+                    <i class="fas fa-search"></i>
+                    <input 
+                        type="text" 
+                        name="search" 
+                        id="search" 
+                        placeholder="Search or start a new chat"
+                        v-model="searchInput"
+                        @keyup="lookFor" 
+                    >
+                </div>
+                               
+            </div>
+            <div class="side-contacts">
+                <ul class="contact-list">
+                    <li v-for="(contact, index) in contacts" class="contact dflex al-center"
+                        :class="indexContact == index ? 'active' : ''" 
+                        @click="setContact(index)"
+                        v-show="contact.visible == true"
+                    >
+                        <img :src="'./images/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                        <p >{{contact.name}}</p>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- main window -->
+        <main class="content dflex">
+            <section class="cont-header dflex al-center">
+                <img :src=" './images/avatar' + contacts[indexContact].avatar + '.jpg' " :alt="contacts[indexContact].name">
+                <div class="user">
+                    <p>{{contacts[indexContact].name}}<br><small class="activity">Last access {{contacts[indexContact].lastOnline}}</small></p>
+                </div>
+                <i class="fas fa-search dark-g"></i>
+                <i class="fas fa-paperclip dark-g"></i>
+                <i class="fas fa-ellipsis-v dark-g"></i>
+            </section>
+            <section class="cont-main">
+                <div v-for="message in contacts[indexContact].messages" 
+                    :class="['dflex', message.status]"
+                >
+                    <p>{{message.message}}
+                        <span class="extrasmall">{{message.date}}<span>
+                    </p>
+                </div>
+            </section>
+            <section class="cont-footer dflex al-center dark-g">
+                <i class="far fa-smile"></i>
+                <input 
+                    class="send-message"
+                    type="text" 
+                    name="message" 
+                    id="message" 
+                    placeholder="Write your message..."
+                    v-model="newMessages" 
+                    v-on:keyup.enter="addMessage(indexContact)" 
+                >
+                <i class="fas fa-microphone"></i>
+            </section>
+        </main>
+    
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.6/dayjs.min.js" integrity="sha512-C2m821NxMpJ4Df47O4P/17VPqt0yiK10UmGl59/e5ynRRYiCSBvy0KHJjhp2XIjUJreuR+y3SIhVyiVilhCmcQ==" crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>    
+</body>
+</html>

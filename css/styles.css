@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(
+        to bottom, 
+        #00bfa5 0%, 
+        #00bfa5 17%, 
+        #d4dbd9 17%,
+        #d4dbd9 100%
+    );
+}
+
+li {
+    list-style: none;
+}
+
+.dflex {
+    display: flex;
+}
+
+.al-center {
+    align-items: center;
+}
+
+.dark-g {
+    color: #919191;
+}
+
+.p-small {
+    font-size: 12px;
+    color: rgba(0,0,0,.6);
+}
+
+i {
+    cursor: pointer;
+}
+
+/* LAYOUT */
+.container {
+    width: 80%;
+    min-width: 900px;
+    height: 95%;
+    background: #fff;
+    box-shadow: 4px 4px 19px rgba(0,0,0,.1);
+}
+
+.sidebar {
+    width: 35%;
+    flex-direction: column;
+}
+
+.content {
+    flex-grow: 1;
+    flex-direction: column;
+    background: cornflowerblue;
+}
+
+.cont-header {
+    height: 52px;
+    background: #ededed;
+}
+
+.cont-main {
+    flex-grow: 1;
+    background-image: url(../images/mine.jpg);
+    background-position: center;
+    overflow: auto;
+}
+
+.cont-footer {
+    height: 45px;
+    background: #ededed;
+}
+
+.sidebar .side-account {
+    height: 52px;
+    background: #ededed;
+    border-right: 1px solid #e1e1e1;
+}
+
+.sidebar .side-notify {
+    height: 68px;
+    background: #9de1fe;
+}
+
+.sidebar .side-search {
+    justify-content: center;
+    height: 35px;
+    background: #ededed;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.sidebar .side-contacts {
+    flex-grow: 1;
+    overflow: auto;
+    background: #fff;
+}
+
+/* ACCOUNT */
+.sidebar .side-account img {
+    max-width: 40px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.sidebar .side-account h4 {
+    flex-grow: 1;
+}
+
+
+.side-account i {
+    font-size: 18px;
+    margin-right: 18px;
+}
+
+/* NOTIFY */
+.side-notify i {
+    padding: 10px 9px;
+    font-size: 18px;
+    background: #fff;
+    border-radius: 50%;
+    color: #9de1fe ;
+    margin: 0 10px;
+    cursor: auto;
+}
+
+.side-notify a {
+    font-size: 12px;
+    color: #41619d;
+}
+
+/* SEARCH */
+.side-search .search-query {
+    width: 97%;
+    height: 85%;
+    margin: auto;
+    background: #fff;
+    color: #e1e1e1 ;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 10px 5px;
+}
+
+.side-search .search-query input{
+    line-height: 20px;
+    margin-left: 10px;
+    width: 100%;
+    color: rgba(black, .5) ;
+    border: none;
+}
+
+/* CONTACT LIST */
+.contact-list img {
+    max-width: 50px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.contact {
+    border-bottom: 1px solid #f5f5f5;
+    cursor: pointer;
+    transition: background .3s;
+}
+
+.contact:hover {
+    background: #ededed;
+}
+
+.contact-list li:last-child {
+    border-bottom: none;
+}
+
+/* MAIN-HEADER */
+.cont-header img {
+    max-width: 40px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.cont-header .user {
+    flex-grow: 1;
+    padding: 5px;
+}
+
+.cont-header i {
+    font-size: 18px;
+    margin-right: 18px;
+}
+
+/* FOOTER */
+.content .cont-footer i {
+    font-size: 20px;
+    margin: 10px 20px;
+}
+
+.content .cont-footer input {
+    flex-grow: 1;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 12px;
+    padding-left: 10px;
+    line-height: 30px;
+    color: black;
+}
+
+.content .cont-footer input:active,
+.content .cont-footer input:focus,
+.content .cont-footer input:hover {
+    border: 1px solid #00bfa5;
+}
+
+/* MAIN CONTENT */
+.cont-main {
+    padding: 35px;
+}
+
+.cont-main .sent, 
+.cont-main .received {
+    padding: 5px;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.cont-main .received {
+    padding: 5px;
+    justify-content: flex-start;
+}
+
+.cont-main .received::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    bottom: 15px;
+    left: 0px;
+    transform: rotate(45deg);    
+}
+
+.cont-main .sent::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #dcf8c6;
+    bottom: 15px;
+    right: 0px;
+    transform: rotate(45deg);     
+}
+
+.cont-main .sent p, 
+.cont-main .received p {
+    position: relative;
+    width: 40%;
+    border-radius: 10px;
+    padding: 10px 10px 20px 10px;
+    background: #fff;
+}
+
+.cont-main .sent p {
+    background: #dcf8c6;
+}
+
+.extrasmall {
+    position: absolute;
+    bottom: 4px;
+    right: 5px;
+    font-size: 9px;
+    color: #b7b7b7;
+}
+
+.active {
+    background: #ededed;
+}
+
+.cont-footer {
+    position: relative;
+}
